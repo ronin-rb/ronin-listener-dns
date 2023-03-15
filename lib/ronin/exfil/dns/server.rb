@@ -82,8 +82,8 @@ module Ronin
           @domain = domain
           @suffix = ".#{domain}"
 
-          @host   = host
-          @port   = port
+          @host = host
+          @port = port
 
           super([[:udp, host, port]])
 
