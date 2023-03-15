@@ -9,3 +9,6 @@ inherit_gem:
 #
 # ronin-exfil-dns specific exceptions
 #
+Layout/SpaceInsideBlockBraces:
+  Exclude:
+    - 'spec/server_spec.rb'
