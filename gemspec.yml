@@ -2,7 +2,8 @@ name: ronin-exfil-dns
 summary: A DNS server for receiving exfilled data.
 description: |
   ronin-exfil-dns is a DNS server for receiving exfiled data sent via DNS
-  queries.
+  queries. ronin-exfil-dns can be used to test for XML external entity (XXE)
+  injection.
 
 license: LGPL-3.0
 authors: Postmodern
