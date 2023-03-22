@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 #
-# ronin-exfil-dns - A DNS server for receiving exfilled data.
+# ronin-exfil-dns - A DNS server for receiving exfiltrated data.
 #
 # Copyright (c) 2023 Hal Brodigan (postmodern.mod3@gmail.com)
 #
