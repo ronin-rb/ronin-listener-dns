@@ -19,7 +19,7 @@ describe Ronin::Exfil::DNS::Server do
     end
 
     it "must default #port to 53" do
-      expect(subject.host).to eq('0.0.0.0')
+      expect(subject.port).to eq(53)
     end
 
     it "must set #callback" do
