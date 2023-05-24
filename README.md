@@ -1,20 +1,20 @@
-# ronin-exfil-dns
+# ronin-listener-dns
 
-[![CI](https://github.com/ronin-rb/ronin-exfil-dns/actions/workflows/ruby.yml/badge.svg)](https://github.com/ronin-rb/ronin-exfil-dns/actions/workflows/ruby.yml)
-[![Code Climate](https://codeclimate.com/github/ronin-rb/ronin-exfil-dns.svg)](https://codeclimate.com/github/ronin-rb/ronin-exfil-dns)
+[![CI](https://github.com/ronin-rb/ronin-listener-dns/actions/workflows/ruby.yml/badge.svg)](https://github.com/ronin-rb/ronin-listener-dns/actions/workflows/ruby.yml)
+[![Code Climate](https://codeclimate.com/github/ronin-rb/ronin-listener-dns.svg)](https://codeclimate.com/github/ronin-rb/ronin-listener-dns)
 
 * [Website](https://ronin-rb.dev/)
-* [Source](https://github.com/ronin-rb/ronin-exfil-dns)
-* [Issues](https://github.com/ronin-rb/ronin-exfil-dns/issues)
-* [Documentation](https://ronin-rb.dev/docs/ronin-exfil-dns)
+* [Source](https://github.com/ronin-rb/ronin-listener-dns)
+* [Issues](https://github.com/ronin-rb/ronin-listener-dns/issues)
+* [Documentation](https://ronin-rb.dev/docs/ronin-listener-dns)
 * [Discord](https://discord.gg/6WAb3PsVX9) |
   [Twitter](https://twitter.com/ronin_rb) |
   [Mastodon](https://infosec.exchange/@ronin_rb)
 
 ## Description
 
-ronin-exfil-dns is a DNS server for receiving exfiltrated data sent via DNS
-queries. ronin-exfil-dns can be used to test for XML external entity (XXE)
+ronin-listener-dns is a DNS server for receiving exfiltrated data sent via DNS
+queries. ronin-listener-dns can be used to test for XML external entity (XXE)
 injection.
 
 ## Features
@@ -25,7 +25,7 @@ injection.
 ## Examples
 
 ```ruby
-Ronin::Exfil::DNS.listen('example.com', host: '127.0.0.1', port: 5553) do |query_type,query_value|
+Ronin::Listener::DNS.listen('example.com', host: '127.0.0.1', port: 5553) do |query_type,query_value|
   puts "Received query for #{query_type} #{query_value}"
 end
 ```
@@ -47,26 +47,26 @@ script must be ran as `root`.
 ## Install
 
 ```shell
-$ gem install ronin-exfil-dns
+$ gem install ronin-listener-dns
 ```
 
 ### Gemfile
 
 ```ruby
-gem 'ronin-exfil-dns', '~> 0.1'
+gem 'ronin-listener-dns', '~> 0.1'
 ```
 
 ### gemspec
 
 ```ruby
-gem.add_dependency 'ronin-exfil-dns', '~> 0.1'
+gem.add_dependency 'ronin-listener-dns', '~> 0.1'
 ```
 
 ## Development
 
-1. [Fork It!](https://github.com/ronin-rb/ronin-exfil-dns/fork)
+1. [Fork It!](https://github.com/ronin-rb/ronin-listener-dns/fork)
 2. Clone It!
-3. `cd ronin-exfil-dns/`
+3. `cd ronin-listener-dns/`
 4. `bundle install`
 5. `git checkout -b my_feature`
 6. Code It!
@@ -77,18 +77,18 @@ gem.add_dependency 'ronin-exfil-dns', '~> 0.1'
 
 Copyright (c) 2023 Hal Brodigan (postmodern.mod3@gmail.com)
 
-ronin-exfil-dns is free software: you can redistribute it and/or modify
+ronin-listener-dns is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published
 by the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-ronin-exfil-dns is distributed in the hope that it will be useful,
+ronin-listener-dns is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU Lesser General Public License for more details.
 
 You should have received a copy of the GNU Lesser General Public License
-along with ronin-exfil-dns.  If not, see <https://www.gnu.org/licenses/>.
+along with ronin-listener-dns.  If not, see <https://www.gnu.org/licenses/>.
 
 [Ruby]: https://www.ruby-lang.org
 [async-dns]: https://github.com/socketry/async-dns#readme

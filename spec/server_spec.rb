@@ -1,7 +1,7 @@
 require 'spec_helper'
-require 'ronin/exfil/dns/server'
+require 'ronin/listener/dns/server'
 
-describe Ronin::Exfil::DNS::Server do
+describe Ronin::Listener::DNS::Server do
   let(:domain)   { 'example.com' }
   let(:host)     { '127.0.0.1' }
   let(:port)     { 5553 }

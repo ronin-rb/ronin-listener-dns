@@ -1,8 +1,8 @@
-name: ronin-exfil-dns
-summary: A DNS server for receiving exfiltrated data.
+name: ronin-listener-dns
+summary: A DNS server that listens for exfiltrated data.
 description: |
-  ronin-exfil-dns is a DNS server for receiving exfiltrated data sent via DNS
-  queries. ronin-exfil-dns can be used to test for XML external entity (XXE)
+  ronin-listener-dns is a DNS server for receiving exfiltrated data sent via DNS
+  queries. ronin-listener-dns can be used to test for XML external entity (XXE)
   injection.
 
 license: LGPL-3.0
@@ -12,10 +12,10 @@ homepage: https://ronin-rb.dev/
 has_yard: true
 
 metadata:
-  documentation_uri: https://ronin-rb.dev/docs/ronin-exfil-dns
-  source_code_uri:   https://github.com/ronin-rb/ronin-exfil-dns
-  bug_tracker_uri:   https://github.com/ronin-rb/ronin-exfil-dns/issues
-  changelog_uri:     https://github.com/ronin-rb/ronin-exfil-dns/blob/main/ChangeLog.md
+  documentation_uri: https://ronin-rb.dev/docs/ronin-listener-dns
+  source_code_uri:   https://github.com/ronin-rb/ronin-listener-dns
+  bug_tracker_uri:   https://github.com/ronin-rb/ronin-listener-dns/issues
+  changelog_uri:     https://github.com/ronin-rb/ronin-listener-dns/blob/main/ChangeLog.md
   rubygems_mfa_required: 'true'
 
 required_ruby_version: ">= 3.0.0"
