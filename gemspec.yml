@@ -1,5 +1,5 @@
 name: ronin-listener-dns
-summary: A DNS server that listens for exfiltrated data.
+summary: A DNS listener that listens for exfiltrated data via DNS queries.
 description: |
   ronin-listener-dns is a DNS server for receiving exfiltrated data sent via DNS
   queries. ronin-listener-dns can be used to test for XML external entity (XXE)
