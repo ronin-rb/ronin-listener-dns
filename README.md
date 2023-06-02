@@ -25,15 +25,15 @@ injection.
 ## Examples
 
 ```ruby
-Ronin::Listener::DNS.listen('example.com', host: '127.0.0.1', port: 5553) do |query_type,query_value|
-  puts "Received query for #{query_type} #{query_value}"
+Ronin::Listener::DNS.listen('example.com', host: '127.0.0.1', port: 5553) do |query|
+  puts "Received query for #{query.type} #{query.label} from #{query.remote_address.ip_address}:#{query.remote_address.ip_port}"
 end
 ```
 
 Then try running `host -p 5553 s3cr3t.example.com 127.0.0.1` to test the server.
 
 ```
-Received query for A s3cr3t.example.com
+Received query for A s3cr3t.example.com from 127.0.0.1:59042
 ```
 
 **Note:** if you wish to run the server on `0.0.0.0` and port `53`, the ruby

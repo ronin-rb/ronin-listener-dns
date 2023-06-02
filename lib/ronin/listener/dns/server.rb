@@ -18,6 +18,8 @@
 # along with ronin-listener-dns.  If not, see <https://www.gnu.org/licenses/>.
 #
 
+require 'ronin/listener/dns/query'
+
 require 'async/dns'
 
 module Ronin
@@ -62,14 +64,11 @@ module Ronin
         # @param [Integer] port
         #   The local port to listen on.
         #
-        # @yield [query_type,query_name]
+        # @yield [query]
         #   The given block will be passed each received query.
         #
-        # @yieldparam [:A, :AAAA, :ANY, :CNAME, :HINFO, :LOC, :MINFO, :MX, :NS, :PTR, :SOA, :SRV, :TXT, :WKS] query_type
-        #   The type of the query.
-        #
-        # @yieldparam [String] query_name
-        #   The hostname being queried.
+        # @yieldparam [Query] query
+        #   The received DNS query object.
         #
         # @raise [ArgumentError]
         #   No callback block was given.
@@ -113,8 +112,8 @@ module Ronin
         #
         # Processes an incoming query.
         #
-        # @param [String] name
-        #   The query value (ex: `www.example.com`).
+        # @param [String] label
+        #   The queried domain label (ex: `www.example.com`).
         #
         # @param [Class<Resolv::DNS::Resource>] resource_class
         #   The resource class (ex: `Resolv::DNS::Resource::IN::A`).
@@ -124,13 +123,16 @@ module Ronin
         #
         # @api private
         #
-        def process(name,resource_class,transaction)
+        def process(label,resource_class,transaction)
           # filter out queries for all other domains
-          if name.end_with?(@suffix)
+          if label.end_with?(@suffix)
             # map the `Resolv::DNS::Resource::IN` class to a Symbol
             query_type = RECORD_TYPES.fetch(resource_class)
 
-            @callback.call(query_type,name)
+            # extract the remote address
+            remote_address = transaction.options[:remote_address]
+
+            @callback.call(Query.new(query_type,label,remote_address))
           end
 
           # always respond with an error to prevent DNS caching

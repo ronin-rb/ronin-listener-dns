@@ -54,7 +54,12 @@ describe Ronin::Listener::DNS::Server do
   describe "#process" do
     let(:name)           { "s3cr3t.#{domain}" }
     let(:resource_class) { Resolv::DNS::Resource::IN::A }
-    let(:transaction)    { double('Async::DNS::Transaction') }
+    let(:remote_address) { Addrinfo.tcp('127.0.0.1',1337) }
+    let(:transaction) do
+      double(
+        'Async::DNS::Transaction', options: {remote_address: remote_address}
+      )
+    end
 
     context "when the query value is under #domain" do
       let(:query_type) { :A }
@@ -65,7 +70,7 @@ describe Ronin::Listener::DNS::Server do
         expect { |b|
           server = described_class.new(domain,&b)
           server.process(name,resource_class,transaction)
-        }.to yield_with_args(query_type,name)
+        }.to yield_with_args(Ronin::Listener::DNS::Query)
       end
     end
 

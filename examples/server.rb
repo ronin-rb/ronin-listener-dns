@@ -9,8 +9,8 @@ puts "Try running `host -p 5553 s3cr3t.example.com 127.0.0.1` to test"
 puts
 
 begin
-  Ronin::Listener::DNS.listen('example.com', host: '127.0.0.1', port: 5553) do |query_type,query_value|
-    puts "Received query for #{query_type} #{query_value}"
+  Ronin::Listener::DNS.listen('example.com', host: '127.0.0.1', port: 5553) do |query|
+    puts "Received query for #{query.type} #{query.label} from #{query.remote_address.ip_address}:#{query.remote_address.ip_port}"
   end
 rescue Interrupt
   exit(127)
