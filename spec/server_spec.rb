@@ -54,10 +54,10 @@ describe Ronin::Listener::DNS::Server do
   describe "#process" do
     let(:name)           { "s3cr3t.#{domain}" }
     let(:resource_class) { Resolv::DNS::Resource::IN::A }
-    let(:remote_address) { Addrinfo.tcp('127.0.0.1',1337) }
+    let(:source_addr) { Addrinfo.tcp('127.0.0.1',1337) }
     let(:transaction) do
       double(
-        'Async::DNS::Transaction', options: {remote_address: remote_address}
+        'Async::DNS::Transaction', options: {source_addr: source_addr}
       )
     end
 

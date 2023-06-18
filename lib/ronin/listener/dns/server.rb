@@ -55,7 +55,7 @@ module Ronin
         #
         # Initializes the DNS listener server.
         #
-        # @param [String] domain
+        # @param [String, Regexp] domain
         #   The domain to accept queries for (ex: `example.com`).
         #
         # @param [String] host
@@ -73,7 +73,9 @@ module Ronin
         # @raise [ArgumentError]
         #   No callback block was given.
         #
-        def initialize(domain, host: '0.0.0.0', port: 53, &callback)
+        def initialize(domain, host: '0.0.0.0',
+                               port: 53,
+                               &callback)
           unless callback
             raise(ArgumentError,"#{self.class}#initialize requires a callback block")
           end
@@ -130,9 +132,9 @@ module Ronin
             query_type = RECORD_TYPES.fetch(resource_class)
 
             # extract the remote address
-            remote_address = transaction.options[:remote_address]
+            source_addr = transaction.options[:remote_address]
 
-            @callback.call(Query.new(query_type,label,remote_address))
+            @callback.call(Query.new(query_type,label,source_addr))
           end
 
           # always respond with an error to prevent DNS caching

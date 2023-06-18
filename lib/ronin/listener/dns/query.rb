@@ -41,7 +41,7 @@ module Ronin
         # The remote IP address and port that sent the query.
         #
         # @return [Addrinfo]
-        attr_reader :remote_address
+        attr_reader :source_addr
 
         #
         # Initializes the query.
@@ -52,16 +52,16 @@ module Ronin
         # @param [String] label
         #   The queried domain label.
         #
-        # @param [Addrinfo] remote_address
+        # @param [Addrinfo] source_addr
         #   The remote IP address and port that sent the query.
         #
         # @api private
         #
-        def initialize(type,label,remote_address)
+        def initialize(type,label,source_addr)
           @type  = type
           @label = label
 
-          @remote_address = remote_address
+          @source_addr = source_addr
         end
 
       end

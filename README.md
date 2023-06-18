@@ -26,7 +26,7 @@ injection.
 
 ```ruby
 Ronin::Listener::DNS.listen('example.com', host: '127.0.0.1', port: 5553) do |query|
-  puts "Received query for #{query.type} #{query.label} from #{query.remote_address.ip_address}:#{query.remote_address.ip_port}"
+  puts "Received query for #{query.type} #{query.label} from #{query.source_addr.ip_address}:#{query.source_addr.ip_port}"
 end
 ```
 
