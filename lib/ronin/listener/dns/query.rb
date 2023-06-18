@@ -64,6 +64,34 @@ module Ronin
           @source_addr = source_addr
         end
 
+        #
+        # The source IP address that sent the query.
+        #
+        # @return [String]
+        #
+        def source_ip
+          @source_addr.ip_address
+        end
+
+        #
+        # The source port the query was sent from.
+        #
+        # @return [Integer]
+        #
+        def source_port
+          @source_addr.ip_port
+        end
+
+        #
+        # The source of the query.
+        #
+        # @return [String]
+        #   The source IP:port pair as a String.
+        #
+        def source
+          "#{source_ip}:#{source_port}"
+        end
+
       end
     end
   end
