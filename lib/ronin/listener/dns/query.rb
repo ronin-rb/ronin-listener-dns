@@ -102,6 +102,22 @@ module Ronin
           [source_ip, source_port, @type, @label]
         end
 
+        #
+        # Converts the query into a Hash.
+        #
+        # @return [Hash{Symbol => String,Integer,Symbol}]
+        #   The Hash containing {#source_ip}, {#source_port}, {#type}, and
+        #   {#label}.
+        #
+        def to_h
+          {
+            source_ip:   source_ip,
+            source_port: source_port,
+            type:        @type,
+            label:       @label
+          }
+        end
+
       end
     end
   end

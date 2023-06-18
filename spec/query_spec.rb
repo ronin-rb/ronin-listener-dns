@@ -52,4 +52,17 @@ describe Ronin::Listener::DNS::Query do
       )
     end
   end
+
+  describe "#to_h" do
+    it "must return a Hash containing the #source_ip, #source_port, #type, and #label" do
+      expect(subject.to_h).to eq(
+        {
+          source_ip:   source_ip,
+          source_port: source_port,
+          type:        type,
+          label:       label
+        }
+      )
+    end
+  end
 end
