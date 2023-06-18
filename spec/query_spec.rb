@@ -44,4 +44,12 @@ describe Ronin::Listener::DNS::Query do
       expect(subject.source).to eq("#{source_ip}:#{source_port}")
     end
   end
+
+  describe "#to_a" do
+    it "must return an Array containing the #source_ip, #source_port, #type, and #label" do
+      expect(subject.to_a).to eq(
+        [source_ip, source_port, type, label]
+      )
+    end
+  end
 end

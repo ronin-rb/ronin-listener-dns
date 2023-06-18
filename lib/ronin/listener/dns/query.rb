@@ -92,6 +92,16 @@ module Ronin
           "#{source_ip}:#{source_port}"
         end
 
+        #
+        # Converts the query into an Array.
+        #
+        # @return [(String, Integer, Symbol, String)]
+        #   The {#source_ip}, {#source_port}, {#type}, and {#label}.
+        #
+        def to_a
+          [source_ip, source_port, @type, @label]
+        end
+
       end
     end
   end
