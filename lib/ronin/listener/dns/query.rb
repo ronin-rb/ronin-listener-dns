@@ -18,6 +18,8 @@
 # along with ronin-listener-dns.  If not, see <https://www.gnu.org/licenses/>.
 #
 
+require 'json'
+
 module Ronin
   module Listener
     module DNS
@@ -116,6 +118,21 @@ module Ronin
             type:        @type,
             label:       @label
           }
+        end
+
+        alias as_json to_h
+
+        #
+        # Converts the DNS query into JSON.
+        #
+        # @param [Array] args
+        #   Additional arguments for `Hash#to_json`.
+        #
+        # @return [String]
+        #   The raw JSON string.
+        #
+        def to_json(*args)
+          as_json.to_json(*args)
         end
 
       end
