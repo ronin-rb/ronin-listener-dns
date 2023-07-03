@@ -25,6 +25,8 @@ injection.
 ## Examples
 
 ```ruby
+require 'ronin/listener/dns'
+
 Ronin::Listener::DNS.listen('example.com', host: '127.0.0.1', port: 5553) do |query|
   puts "Received query for #{query.type} #{query.label} from #{query.source}"
 end
