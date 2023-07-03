@@ -19,6 +19,7 @@
 #
 
 require 'json'
+require 'csv'
 
 module Ronin
   module Listener
@@ -118,6 +119,16 @@ module Ronin
             type:        @type,
             label:       @label
           }
+        end
+
+        #
+        # Converts the DNS query to a CSV row.
+        #
+        # @return [String]
+        #   The CSV row.
+        #
+        def to_csv
+          to_a.to_csv
         end
 
         alias as_json to_h

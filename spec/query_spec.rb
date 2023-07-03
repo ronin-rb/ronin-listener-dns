@@ -66,6 +66,12 @@ describe Ronin::Listener::DNS::Query do
     end
   end
 
+  describe "#to_csv" do
+    it "must convert #to_a to a CSV line" do
+      expect(subject.to_csv).to eq(CSV.generate_line(subject.to_a))
+    end
+  end
+
   describe "#as_json" do
     it "must return #to_h" do
       expect(subject.as_json).to eq(subject.to_h)
