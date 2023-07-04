@@ -96,6 +96,16 @@ module Ronin
         end
 
         #
+        # Converts the query to a String.
+        #
+        # @return [String]
+        #   The String containing the {#source}, {#type}, and {#label}.
+        #
+        def to_s
+          "#{source} #{@type} #{@label}"
+        end
+
+        #
         # Converts the query into an Array.
         #
         # @return [(String, Integer, Symbol, String)]
