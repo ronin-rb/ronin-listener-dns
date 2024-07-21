@@ -22,7 +22,7 @@ module Ronin
   module Listener
     module DNS
       # ronin-listener-dns version
-      VERSION = '0.1.0.rc1'
+      VERSION = '0.1.0'
     end
   end
 end
