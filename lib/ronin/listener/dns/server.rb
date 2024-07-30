@@ -18,7 +18,7 @@
 # along with ronin-listener-dns.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/listener/dns/query'
+require_relative 'query'
 
 require 'async/dns'
 

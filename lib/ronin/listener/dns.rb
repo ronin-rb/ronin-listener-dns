@@ -18,7 +18,7 @@
 # along with ronin-listener-dns.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/listener/dns/server'
+require_relative 'dns/server'
 
 module Ronin
   module Listener
